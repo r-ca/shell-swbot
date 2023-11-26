@@ -4,7 +4,7 @@
 LOGGER="$LOGGER_PATH action/SetMode"
 
 # ActionType: Set
-$LOGGER "debug" "Command: ${ARG_COMMAND}"
+$LOGGER "debug" "Command: ${ACTION}"
 
 isSingle=true
 # デバイスIDのパース
@@ -27,19 +27,18 @@ fi
 
 for device_id in "${DEVICE_ID_LIST[@]}"; do 
     $LOGGER "debug" "Execute device ID: ${device_id}"
-    resp=$(
-        curl -s -X POST \
-            -H "Authorization: ${TOKEN}" \
-            -H "Content-Type: application/json; charset=utf8" \
-            -d '{"command": "'${command}'", "parameter": "default", "commandType": "command"}' \
-            "https://api.switch-bot.com/v1.0/devices/${device_id}/commands"
-    )
-    $LOGGER "debug" "Response: ${resp}"
-    if [ $(echo $resp | jq ".statusCode") -ne 100 ]; then
-        $LOGGER "err" "Failed to execute."
+
+    req_body='{"command": "'${command}'", "parameter": "default", "commandType": "command"}'
+    req_url="https://api.switch-bot.com/v1.0/devices/${device_id}/commands"
+
+    $COMMON_ROOT"/swbot-api/post.sh"
+    if [ $? -ne 0 ]; then
+        $LOGGER "err_c" "Request failed."
         exit 1
     else 
-        $LOGGER "succ" "Successfully executed!"
+        $LOGGER "succ" "Request succeeded!"
     fi
+
+    $LOGGER "debug" "Response: ${resp}"
 done
 
