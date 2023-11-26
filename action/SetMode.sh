@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Init
-LOGGER="$LOGGER_PATH SetMode"
+LOGGER="$LOGGER_PATH action/SetMode"
 
 # ActionType: Set
 $LOGGER "debug" "Command: ${ARG_COMMAND}"
