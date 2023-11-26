@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# ENV
+IS_DEBUG=true
+
+if [[ -v IS_DEBUG ]]; then
+        if [ "${IS_DEBUG}" = "false" ]; then
+                exit
+        fi
+fi
+
+head=""
+case $1 in
+        "err_c")
+                head="\e[41m ERROR \e[00m";;
+        "err")
+                head="\e[31m ERROR \e[00m";;
+        "warn")
+                head="\e[33m WARN  \e[00m";;
+        "info")
+                head="\e[34m INFO  \e[00m";;
+        "succ")
+                head="\e[32m SUCC  \e[00m";;
+        *)
+                head="$1"
+esac
+
+
+
+printf "${head} : ${2}\n"
