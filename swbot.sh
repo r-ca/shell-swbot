@@ -65,10 +65,10 @@ if [ "${1}" = "setOn" -o "${1}" = "setOff" ]; then
         )
         ./logger "debug" "Response: ${resp}" "SetMode"
         if [ $(echo $resp | jq ".statusCode") -ne 100 ]; then
-            ./logger "err" "Failed to execute command" "SetMode"
+            ./logger "err" "Failed to execute." "SetMode"
             exit 1
         else 
-            ./logger "succ" "Successfully executed command" "SetMode"
+            ./logger "succ" "Successfully executed!" "SetMode"
         fi
     done
 
