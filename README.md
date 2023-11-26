@@ -4,7 +4,7 @@
 ![output_15fps](https://github.com/r-ca/shell-swbot/assets/66072112/2e8a6d78-72ad-44e9-91fe-f89adfef2784)
 
 ## 概要
-- SwitchBotのAPIを叩いてデバイスを操作するシェルスクリプト
+- SwitchBotのAPIを叩いてデバイスを操作するシェルスクリプト(Ulauncherから呼び出すのを想定)
 
 ## 詳細
 ### 環境変数
