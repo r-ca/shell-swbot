@@ -25,6 +25,9 @@ case $1 in
                 head="$1"
 esac
 
+tag="(Default)"
+if [ -n "$3" ]; then
+        tag='('"$3"')'
+fi
 
-
-printf "${head} : ${2}\n"
+printf "${head} $tag:\t ${2}\n"
