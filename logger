@@ -10,6 +10,7 @@ if [[ -v IS_DEBUG ]]; then
 fi
 
 head=""
+debug=false
 case $1 in
         "err_c")
                 head="\e[41m ERROR \e[00m";;
@@ -21,8 +22,10 @@ case $1 in
                 head="\e[34m INFO  \e[00m";;
         "succ")
                 head="\e[32m SUCC  \e[00m";;
-        *)
-                head="$1"
+        "debug")
+                head="DEBUG"
+                debug=true;;
+                
 esac
 
 tag="(Default)"
@@ -30,4 +33,10 @@ if [ -n "$3" ]; then
         tag='('"$3"')'
 fi
 
-printf "${head} $tag:\t ${2}\n"
+
+# 出力
+if [ "$debug" = "true" ]; then
+    printf "\e[2m ${head} $tag:\t ${2}\n \e[00m"
+else 
+    printf "${head} $tag:\t ${2}\n"
+fi
