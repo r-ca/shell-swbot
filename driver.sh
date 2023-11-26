@@ -1,11 +1,16 @@
 #!/bin/bash
 
-# デバッグするときとかに使うドライバ
+# ドライバ
+##　第一引数: アクションのオーバーライド
 
 ## SETTING
 TOKEN="token"
 DEVICE_ID_LIST=("device_id1" "device_id2")
-MODE="setOn"
+MODE="setOff"
+
+if [[ -n "$1" ]]; then
+    MODE=$1
+fi
 
 ## 変換
 DEVICE_IDS=${#DEVICE_ID_LIST[*]},$(IFS=,; echo "${DEVICE_ID_LIST[*]}")
