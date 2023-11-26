@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # ENV
-IS_DEBUG=true
-
-if [[ -v IS_DEBUG ]]; then
-        if [ "${IS_DEBUG}" = "false" ]; then
+ENABLE_LOG=true
+HIDE_DEBUG=true
+if [[ -v ENABLE_LOG ]]; then
+        if [ "${ENABLE_LOG}" = "false" ]; then
                 exit
         fi
 fi
@@ -36,6 +36,9 @@ fi
 
 # 出力
 if [ "$debug" = "true" ]; then
+    if [ "$HIDE_DEBUG" = "true" ]; then
+        exit
+    fi
     printf "\e[2m ${head} $tag:\t ${2} \e[00m\n"
 else 
     printf "${head} $tag:\t ${2}\n"
