@@ -29,4 +29,23 @@ else
     ./logger "debug" "DEVICE_IDS : ${DEVICE_IDS}" "EnvCheck"
 fi
 
+# 操作タイプ分岐
+if [ "${1}" = "setOn" -o "${1}" = "setOff" ]; then
+    # ActionType: Set
+    ./logger "debug" "ActionType: Set" "Main"
+    ./logger "debug" "Mode: ${1}" "Main"
 
+    isSingle=true
+    # デバイスIDのパース
+    DEVICE_ID_LIST=(${DEVICE_IDS//,/ })
+    if [ "${DEVICE_ID_LIST[0]}" -gt 1 ]; then
+        isSingle=false
+        ./logger "debug" "Multiple Device Mode" "SetMode"
+    else 
+        ./logger "debug" "Single Device Mode" "SetMode"
+    fi
+
+
+
+    
+fi
