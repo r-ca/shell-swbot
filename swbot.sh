@@ -32,8 +32,8 @@ fi
 # 操作タイプ分岐
 if [ "${1}" = "setOn" -o "${1}" = "setOff" ]; then
     # ActionType: Set
-    ./logger "debug" "ActionType: Set" "Main"
-    ./logger "debug" "Mode: ${1}" "Main"
+    ./logger "info" "ActionType: Set" "SetMode"
+    ./logger "info" "Mode: ${1}" "SetMode"
 
     isSingle=true
     # デバイスIDのパース
@@ -42,9 +42,9 @@ if [ "${1}" = "setOn" -o "${1}" = "setOff" ]; then
     unset DEVICE_ID_LIST[0] # 0番目はデバイス数なので削除(なんとかしたい)
     if [ "${DEVICE_COUNT}" -gt 1 ]; then
         isSingle=false
-        ./logger "debug" "Multiple Device Mode" "SetMode"
+        ./logger "info" "Multiple Device Mode" "SetMode"
     else 
-        ./logger "debug" "Single Device Mode" "SetMode"
+        ./logger "info" "Single Device Mode" "SetMode"
     fi
 
     command=""
@@ -64,6 +64,12 @@ if [ "${1}" = "setOn" -o "${1}" = "setOff" ]; then
                 "https://api.switch-bot.com/v1.0/devices/${device_id}/commands"
         )
         ./logger "debug" "Response: ${resp}" "SetMode"
+        if [ $(echo $resp | jq ".statusCode") -ne 100 ]; then
+            ./logger "err" "Failed to execute command" "SetMode"
+            exit 1
+        else 
+            ./logger "succ" "Successfully executed command" "SetMode"
+        fi
     done
 
 fi
