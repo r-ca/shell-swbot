@@ -41,5 +41,5 @@ if [ "$debug" = "true" ]; then
     fi
     printf "\e[2m ${head} $tag:\t ${3} \e[00m\n"
 else 
-    printf "${head} $tag:\t ${2}\n"
+    printf "${head} $tag:\t ${3}\n"
 fi
