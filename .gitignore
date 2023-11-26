@@ -1,4 +1,4 @@
-# wrapper(トークンを含むので)
-./wrapper.sh
+# ドライバ(トークンを含むので)
+./driver.sh
 
 
