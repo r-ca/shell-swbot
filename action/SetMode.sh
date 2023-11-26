@@ -1,9 +1,7 @@
 #!/bin/bash
 
 # Init
-LOGGER=${PROJECT_ROOT}"/common/logger.sh SetMode"
-ARG_COMMAND=$1
-
+LOGGER="$LOGGER_PATH SetMode"
 
 # ActionType: Set
 $LOGGER "debug" "Command: ${ARG_COMMAND}"
@@ -21,7 +19,7 @@ else
 fi
 
 command=""
-if [ "${1}" = "setOn" ]; then
+if [ "${ACTION}" = "setOn" ]; then
     command="turnOn"
 else 
     command="turnOff"
