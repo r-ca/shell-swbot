@@ -3,7 +3,7 @@
 # Entry Point
 
 # Init
-PROJECT_ROOT=$(pwd)
+PROJECT_ROOT=$(cd $(dirname $0); pwd)
 ACTION_ROOT=$PROJECT_ROOT"/action"
 COMMON_ROOT=$PROJECT_ROOT"/common"
 
