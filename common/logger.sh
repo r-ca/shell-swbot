@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ENV
-ENABLE_LOG=true
+ENABLE_LOG=false
 HIDE_DEBUG=true
 if [[ -v ENABLE_LOG ]]; then
         if [ "${ENABLE_LOG}" = "false" ]; then
