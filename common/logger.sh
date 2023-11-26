@@ -29,8 +29,8 @@ case $1 in
 esac
 
 tag="(Default)"
-if [ -n "$3" ]; then
-        tag='('"$3"')'
+if [ -n "$2" ]; then
+        tag='('"$2"')'
 fi
 
 
@@ -39,7 +39,7 @@ if [ "$debug" = "true" ]; then
     if [ "$HIDE_DEBUG" = "true" ]; then
         exit
     fi
-    printf "\e[2m ${head} $tag:\t ${2} \e[00m\n"
+    printf "\e[2m ${head} $tag:\t ${3} \e[00m\n"
 else 
     printf "${head} $tag:\t ${2}\n"
 fi
