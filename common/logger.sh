@@ -2,7 +2,7 @@
 
 # ENV
 ENABLE_LOG=true
-HIDE_DEBUG=true
+HIDE_DEBUG=false
 if [[ -v ENABLE_LOG ]]; then
         if [ "${ENABLE_LOG}" = "false" ]; then
                 exit
