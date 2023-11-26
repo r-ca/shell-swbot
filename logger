@@ -23,7 +23,7 @@ case $1 in
         "succ")
                 head="\e[32m SUCC  \e[00m";;
         "debug")
-                head="DEBUG"
+                head="DEBUG "
                 debug=true;;
                 
 esac
