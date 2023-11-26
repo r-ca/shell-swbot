@@ -1,6 +1,7 @@
 # shell-swbot(WIP)
 
 ## デモ
+![output_15fps](https://github.com/r-ca/shell-swbot/assets/66072112/2e8a6d78-72ad-44e9-91fe-f89adfef2784)
 
 ## 概要
 - SwitchBotのAPIを叩いてデバイスを操作するシェルスクリプト
@@ -59,3 +60,6 @@ ACTION="setOn" \
 
 #### 注意点
 - `#!/bin/bash`をつけてスクリプトとして実行しないとサジェスト時にTOKENが表示されてしまいます.
+
+![image](https://github.com/r-ca/shell-swbot/assets/66072112/e40d84f7-68d3-4a69-b850-4454804613f9)
+![image](https://github.com/r-ca/shell-swbot/assets/66072112/7e2fa1f6-6145-4506-8fae-49be3719fcf5)
