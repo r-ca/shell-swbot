@@ -13,7 +13,7 @@ DEVICE_ID_LIST=(${DEVICE_IDS//,/ })
 unset DEVICE_ID_LIST[0] # 0番目はデバイス数なので削除(なんとかしたい)
 if [ "${DEVICE_COUNT}" -gt 1 ]; then
     isSingle=false
-    $LOGGER "info" "Multiple device mode"
+    $LOGGER "info" "Multiple device mode (${DEVICE_COUNT} devices)"
 else 
     $LOGGER "info" "Single device mode"
 fi
@@ -24,6 +24,8 @@ if [ "${ACTION}" = "setOn" ]; then
 else 
     command="turnOff"
 fi
+
+$LOGGER "info" "${command} command will be executed."
 
 for device_id in "${DEVICE_ID_LIST[@]}"; do 
     $LOGGER "debug" "Execute device ID: ${device_id}"
