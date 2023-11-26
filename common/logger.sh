@@ -9,9 +9,15 @@ if [[ -v ENABLE_LOG ]]; then
         fi
 fi
 
+tag="(Default)"
+if [ -n "$1" ]; then
+        tag='('"$1"')'
+fi
+
+
 head=""
 debug=false
-case $1 in
+case $2 in
         "err_c")
                 head="\e[41m ERROR \e[00m";;
         "err")
@@ -27,12 +33,6 @@ case $1 in
                 debug=true;;
                 
 esac
-
-tag="(Default)"
-if [ -n "$2" ]; then
-        tag='('"$2"')'
-fi
-
 
 # 出力
 if [ "$debug" = "true" ]; then
