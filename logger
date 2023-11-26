@@ -36,7 +36,7 @@ fi
 
 # 出力
 if [ "$debug" = "true" ]; then
-    printf "\e[2m ${head} $tag:\t ${2}\n \e[00m"
+    printf "\e[2m ${head} $tag:\t ${2} \e[00m\n"
 else 
     printf "${head} $tag:\t ${2}\n"
 fi
