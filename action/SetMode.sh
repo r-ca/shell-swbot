@@ -31,14 +31,12 @@ for device_id in "${DEVICE_ID_LIST[@]}"; do
     req_body='{"command": "'${command}'", "parameter": "default", "commandType": "command"}'
     req_url="https://api.switch-bot.com/v1.0/devices/${device_id}/commands"
 
-    $COMMON_ROOT"/swbot-api/post.sh"
+    $COMMON_ROOT'/swbot-api/post.sh' "${req_url}" "${req_body}"
     if [ $? -ne 0 ]; then
         $LOGGER "err_c" "Request failed."
         exit 1
     else 
         $LOGGER "succ" "Request succeeded!"
     fi
-
-    $LOGGER "debug" "Response: ${resp}"
 done
 
