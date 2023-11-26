@@ -1,7 +1,5 @@
 #!/bin/bash
 
-LOGGER=$PROJECT_ROOT"/common/logger.sh checkEnv"
-
 failed_count=0
 failed_list=()
 
